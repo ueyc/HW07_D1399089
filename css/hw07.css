@@ -1,0 +1,351 @@
+/*
+   hw07.css：國立自然科學博物館報導的外部樣式表（作者：吳宜蓁 D1399089）。
+   本檔只放 CSS 規則與 CSS 註解，不放任何 HTML 標籤。
+   規則內容來自 HW06 的 style 元素，保留原本的選擇器、屬性值與規則順序；
+   HW06 的三個行內樣式已改成第九區的三個 class。
+*/
+
+/* ===== 一、整頁基本設定 ===== */
+
+/* 元素選擇器 body：設定整頁字型、字級、行高、文字色、背景色，並限制內容寬度。
+   margin: 0 auto 讓內容水平置中；padding 在左右與底部保留留白。 */
+body {
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #1d2b2e;
+    background-color: #eef5f5;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+/* ===== 二、頁首（header） ===== */
+
+/* ID 選擇器 #top：對應 header 的 id="top"，使用深青色背景、白字與下方金色框線。 */
+#top {
+    background-color: #14606b;
+    color: #ffffff;
+    padding: 28px 24px;
+    border-bottom: 6px solid #e0a526;
+    border-radius: 0 0 12px 12px;
+}
+
+/* 後代選擇器 #top h1：只調整頁首裡的主標題，margin 是標題與外部的距離。 */
+#top h1 {
+    margin: 0 0 8px;
+    font-size: 2rem;
+    line-height: 1.3;
+}
+
+#top p {
+    margin: 4px 0;
+}
+
+/* small 的一般顏色是灰綠色；放在深色頁首時對比不足，所以在頁首內改成淺色。 */
+#top small {
+    color: #e3f1f2;
+}
+
+/* ===== 三、導覽與連結 ===== */
+
+/* 元素選擇器 nav：把目錄做成白底卡片；border 是框線、padding 是內距、margin 是外距。 */
+nav {
+    background-color: #ffffff;
+    border: 1px solid #b9d3d6;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin: 20px 0;
+}
+
+nav p {
+    margin: 0 0 6px;
+    color: #14606b;
+}
+
+nav ul {
+    margin: 0;
+    padding-left: 1.2em;
+}
+
+/* 所有連結的基本樣式；text-underline-offset 讓底線與文字保持一點距離。 */
+a {
+    color: #0b5c8a;
+    text-underline-offset: 3px;
+}
+
+/* :hover 是滑鼠移到連結上的狀態：改變文字色並加上淡黃色底。 */
+a:hover {
+    color: #07405f;
+    background-color: #fff4d6;
+}
+
+/* :focus-visible 是用鍵盤 Tab 鍵選到連結時的狀態：顯示明顯的金色外框。 */
+a:focus-visible {
+    outline: 3px solid #e0a526;
+    outline-offset: 2px;
+}
+
+hr {
+    border: 0;
+    border-top: 2px dashed #b9d3d6;
+    margin: 24px 0;
+}
+
+/* ===== 四、章節、標題與文字 ===== */
+
+/* 元素選擇器 section：每個章節是一張白底卡片，和頁面底色區隔。 */
+section {
+    background-color: #ffffff;
+    border: 1px solid #b9d3d6;
+    border-radius: 10px;
+    padding: 8px 24px 16px;
+    margin: 0 0 20px;
+}
+
+h2 {
+    color: #14606b;
+    font-size: 1.5rem;
+    border-bottom: 3px solid #e0a526;
+    padding-bottom: 6px;
+    margin: 16px 0 12px;
+}
+
+h3 {
+    color: #1f4b52;
+    font-size: 1.2rem;
+    margin: 20px 0 8px;
+}
+
+p {
+    margin: 0 0 12px;
+}
+
+ul,
+ol {
+    margin: 0 0 12px;
+    padding-left: 1.6em;
+}
+
+li {
+    margin-bottom: 4px;
+}
+
+strong {
+    color: #0f4d57;
+}
+
+small {
+    color: #4d6366;
+    font-size: 0.875rem;
+}
+
+/* address 預設是斜體；這裡改成正常字體並加粗，讓地址更容易閱讀。 */
+address {
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* ===== 五、表格（取代 HW05 的舊式 border 屬性） ===== */
+
+/* border-collapse: collapse 讓相鄰儲存格共用同一條線，避免出現雙線框。 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0 20px;
+    background-color: #ffffff;
+}
+
+caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: 700;
+    color: #14606b;
+    padding: 6px 0;
+}
+
+th,
+td {
+    border: 1px solid #8fb5ba;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead th {
+    background-color: #14606b;
+    color: #ffffff;
+}
+
+tbody th {
+    background-color: #e3f1f2;
+}
+
+tbody tr:hover {
+    background-color: #fff4d6;
+}
+
+/* ===== 六、圖片、影片與地圖 ===== */
+
+figure {
+    margin: 12px 0 20px;
+}
+
+/* max-width: 100% 讓圖片不超出內容區；height: auto 讓高度依比例縮放，圖片不會變形。 */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #b9d3d6;
+    border-radius: 8px;
+}
+
+figcaption {
+    font-size: 0.9rem;
+    color: #4d6366;
+    margin-top: 6px;
+}
+
+/* 類別選擇器 .video-frame：對應影片 iframe 的 class="video-frame"。
+   aspect-ratio: 16 / 9 讓影片維持正確比例，寬度最多 640px，不會超出內容區。 */
+.video-frame {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* 類別選擇器 .map-frame：對應地圖 iframe；固定高度，寬度跟隨內容區。 */
+.map-frame {
+    display: block;
+    width: 100%;
+    max-width: 640px;
+    height: 320px;
+    border: 0;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+
+/* ===== 七、補充資訊與折疊區塊 ===== */
+
+/* ID 選擇器 #tips：對應 aside 的 id="tips"，用淡黃色底與金色框線標示這是補充提醒。 */
+#tips {
+    background-color: #fff4d6;
+    border: 2px solid #e0a526;
+    border-radius: 10px;
+    padding: 8px 24px 16px;
+    margin-top: 20px;
+}
+
+details {
+    margin: 8px 0;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: #14606b;
+}
+
+summary:hover {
+    color: #07405f;
+}
+
+summary:focus-visible {
+    outline: 3px solid #14606b;
+    outline-offset: 2px;
+}
+
+/* ===== 八、頁尾 ===== */
+
+footer {
+    background-color: #14606b;
+    color: #ffffff;
+    text-align: center;
+    padding: 16px;
+    margin-top: 24px;
+    border-radius: 12px 12px 0 0;
+}
+
+footer p {
+    margin: 4px 0;
+}
+
+footer small {
+    color: #e3f1f2;
+}
+
+footer a {
+    color: #ffe39a;
+}
+
+footer a:hover {
+    color: #14606b;
+    background-color: #ffe39a;
+}
+
+footer a:focus-visible {
+    outline-color: #ffffff;
+}
+
+/* ===== 九、從 HW06 行內樣式搬來的三個 class ===== */
+
+/* 遷移 1：原本寫在 mark 元素 style 屬性中的焦點樣式，現在由 HTML 的 class="reading-focus" 套用。
+   background-color 是底色，color 是文字色，padding 是文字與底色邊緣的內距。 */
+.reading-focus {
+    background-color: #ffe39a;
+    color: #3b2f0b;
+    padding: 2px 6px;
+}
+
+/* 遷移 2：原本寫在散步提醒 p 的行內樣式，現在由 class="route-note" 套用。
+   border-left 在左側畫一條深青色粗線，padding-left 讓文字和線條保持距離。 */
+.route-note {
+    border-left: 4px solid #14606b;
+    padding-left: 12px;
+}
+
+/* 遷移 3：原本寫在資料整理聲明 small 的行內樣式，現在由 class="report-disclaimer" 套用。
+   class 選擇器的權重高於 small 元素選擇器，所以只有這一處聲明會變成斜體。 */
+.report-disclaimer {
+    font-style: italic;
+}
+
+/* ===== 十、窄視窗（寬度 600px 以下）的調整 ===== */
+
+/* @media 是媒體查詢：只有視窗寬度不超過 600px 時，大括號內的規則才會生效。
+   這裡縮小留白與字級，並降低地圖高度，避免手機畫面太擠。 */
+@media (max-width: 600px) {
+    body {
+        padding: 0 12px 32px;
+        font-size: 1rem;
+    }
+
+    #top {
+        padding: 20px 16px;
+    }
+
+    #top h1 {
+        font-size: 1.6rem;
+    }
+
+    section,
+    #tips {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .map-frame {
+        height: 260px;
+    }
+}
