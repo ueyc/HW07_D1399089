@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!-- 文件類型宣告：告訴瀏覽器這是 HTML5 文件，必須放在第一行，沒有結束標籤。 -->
+<html lang="zh-Hant">
+<!-- html 是根元素；lang="zh-Hant" 標示內容是繁體中文，有助於螢幕閱讀器與搜尋引擎判斷語言。 -->
+<head>
+    <!-- head 放網頁的背景資訊，大多不會直接顯示在畫面上。 -->
+    <meta charset="UTF-8">
+    <!-- charset 指定 UTF-8 編碼，中文才不會亂碼；meta 是空元素，不寫結束標籤。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport 讓手機依照裝置寬度顯示；搭配 CSS 的 max-width 與 @media，圖片、影片與地圖會跟著視窗縮放。 -->
+    <title>國立自然科學博物館：從恐龍到植物園的科學之旅</title>
+    <!-- title 顯示在瀏覽器分頁與搜尋結果，內容要和報導主題一致。 -->
+    <meta name="description" content="介紹臺中國立自然科學博物館的歷史沿革、展區特色、參觀順序與交通位置，並以清單、表格、照片、影片和地圖整理資訊。">
+    <!-- description 是頁面摘要，搜尋結果可能會引用，字數適中並說明頁面內容。 -->
+    <meta name="author" content="吳宜蓁 D1399089">
+    <!-- author 記錄作者姓名與學號。 -->
+    <meta name="robots" content="index, follow">
+    <!-- robots 告訴搜尋引擎可以收錄本頁並追蹤連結；它不保證一定會被收錄。 -->
+    <!--
+    canonical 與 og:url 必須是公開網頁的真實網址。
+    本頁部署完成後，再把 Vercel 的完整網址補進這兩個欄位；
+    目前不填，避免放入 localhost、file:// 或虛構的網址。
+    -->
+    <!-- 以下是 Open Graph 分享資訊：貼到社群平台時，會用它們產生預覽卡片。 -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:title" content="國立自然科學博物館：從恐龍到植物園的科學之旅">
+    <meta property="og:description" content="整理國立自然科學博物館的歷史、展區特色與參觀路線。">
+    <!-- og:image 正式上線後應改成圖片的完整網址（以 https:// 開頭）；這裡先放相對路徑。 -->
+    <meta property="og:image" content="nmns-dinosaur.jpg">
+    <meta property="og:image:alt" content="國立自然科學博物館展廳中的暴龍模型、長頸恐龍骨架與參觀的學童">
+    <!--
+    載入外部樣式表（方法三）：
+    rel="stylesheet" 告訴瀏覽器這是樣式表；link 是空元素，不寫結束標籤。
+    href="css/hw07.css" 是相對路徑，從本 HTML 所在的資料夾出發，進入 css 子資料夾，讀取 hw07.css。
+    HTML 的 href、src 從 HTML 位置出發；CSS 裡的 url(...) 則要從 CSS 檔所在位置出發，
+    例如本機背景圖要寫成 url("../images/xxx.jpg")。本頁沒有使用 CSS 背景圖。
+    -->
+    <link rel="stylesheet" href="css/hw07.css">
+</head>
+<body>
+
+    <!--
+    header（頁首）：放整份報導的標題、副標、作者與日期。
+    id="top" 讓頁尾的「回到頁首」連結可以跳回這裡。
+    -->
+    <header id="top">
+        <!-- h1 是整頁唯一的主標題；章節標題用 h2，小節用 h3。 -->
+        <h1>國立自然科學博物館：從恐龍到植物園的科學之旅</h1>
+        <!-- 副標題用 p 搭配 strong，而不是再用一個 h1。 -->
+        <p><strong>走進臺中市區的自然史與科學教室</strong></p>
+        <!-- small 用來放作者與日期等次要資訊；time 的 datetime 屬性提供機器可讀的日期。 -->
+        <p><small>作者：吳宜蓁（D1399089）｜更新日期：<time datetime="2026-10-29">2026 年 10 月 29 日</time></small></p>
+        <!-- 由 css/hw07.css 中的 .report-disclaimer 規則提供斜體；其他 small 維持正常字體。 -->
+        <p><small class="report-disclaimer">本頁為依公開資料整理的課堂作業，沒有現場採訪。</small></p>
+    </header>
+
+    <!--
+    nav（導覽區）：放報導目錄。
+    每個 a 的 href="#名稱" 是「頁內連結」，會跳到同一頁中 id 相同的章節。
+    -->
+    <nav aria-label="報導目錄">
+        <p><strong>本頁目錄</strong></p>
+        <!-- ul 是無序清單，每個項目用 li 包住。 -->
+        <ul>
+            <li><a href="#intro">博物館簡介</a></li>
+            <li><a href="#history">歷史沿革</a></li>
+            <li><a href="#features">展區特色與參觀順序</a></li>
+            <li><a href="#table">展區比較表</a></li>
+            <li><a href="#photo">展廳照片</a></li>
+            <li><a href="#video">影片介紹</a></li>
+            <li><a href="#map">位置地圖</a></li>
+            <li><a href="#tips">參觀小提醒</a></li>
+            <li><a href="#sources">資料來源</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+    <!-- hr 是水平分隔線，用來分開不同內容主題，是空元素。 -->
+
+    <!--
+    main（主要內容）：整頁只能有一個 main，放這頁最核心的內容。
+    它不能包在 header、nav、aside 或 footer 裡面。
+    -->
+    <main>
+
+        <!--
+        article（文章）：一篇可以單獨拿出去閱讀、轉貼的完整報導。
+        下面的每個 section 都是這篇報導的一個章節。
+        -->
+        <article>
+
+            <!-- section（章節）：把文章依主題切開，每個 section 都要有自己的標題。 -->
+            <section id="intro">
+                <h2>一、博物館簡介</h2>
+                <p>
+                    國立自然科學博物館位在<strong>臺中市北區館前路一號</strong>，
+                    是臺灣中部最知名的科學與自然史博物館之一。園區占地約 8.9 萬平方公尺，
+                    由科學中心、太空劇場、生命科學廳、人類文化廳、地球環境廳與植物園六個展示場所組成。
+                </p>
+                <p>
+                    <!-- 由 css/hw07.css 中的 .reading-focus 規則提供底色、文字色與內距。 -->
+                    <mark class="reading-focus">本篇的閱讀焦點：這座博物館如何把自然史、科學體驗與戶外植物園放在同一趟參觀裡。</mark>
+                    <!-- mark 用來標示這篇報導的閱讀焦點，意思是「請特別注意」。 -->
+                    對第一次拜訪的人來說，館內的恐龍展示最容易留下印象，
+                    但走到園區其他角落，還能看到科學繪圖、太空劇場和玻璃溫室，內容比想像中更豐富。
+                </p>
+            </section>
+
+            <section id="history">
+                <h2>二、歷史沿革</h2>
+                <p>
+                    博物館的規劃起於 1980 年前後的國家文化建設計畫。
+                    <strong>1981 年 2 月 27 日</strong>，籌備處在中興大學成立，
+                    由當時的理工學院院長漢寶德擔任主任，並確立以「人與自然」為展示重點，
+                    用主題展示取代傳統的分類陳列。
+                </p>
+                <p>
+                    籌備處先派人到美國的科學博物館考察，回國後決定優先興建科學中心與太空科學展示館。
+                    <strong>1986 年 1 月 1 日</strong>，第一期工程的科學中心與太空劇場正式開放，
+                    這一天也被視為博物館對外開館的起點。1987 年組織條例公布後，博物館制度逐步完整；
+                    資料顯示後續工程在 1988 年與 1993 年陸續完成。
+                </p>
+                <p>
+                    由於 2026 年正好是開館四十週年，館方推出週五午後免費參觀的活動，
+                    讓更多民眾在週末前走進展廳。這也顯示，這座從 1980 年代規劃的博物館，
+                    至今仍持續和新一代的觀眾見面。
+                </p>
+            </section>
+
+            <section id="features">
+                <h2>三、展區特色與參觀順序</h2>
+                <h3>三個值得留意的特色</h3>
+                <!-- ul：無序清單，項目沒有先後順序。 -->
+                <ul>
+                    <li><strong>恐龍展示：</strong>是許多孩子與家庭來館的首要目標。</li>
+                    <li><strong>科學繪圖展示間：</strong>可以透過玻璃窗看到繪圖老師創作，旁邊有對講機能提問。</li>
+                    <li><strong>植物園：</strong>隔著一條馬路就能前往，玻璃溫室裡展示臺灣本土生態與熱帶雨林植物。</li>
+                </ul>
+
+                <h3>建議的參觀順序</h3>
+                <!-- 由 css/hw07.css 中的 .route-note 規則提供左側框線與內距。 -->
+                <p class="route-note">以下順序是我自己規劃的參考，不是官方路線。</p>
+                <!-- ol：有序清單，項目有先後次序，瀏覽器會自動編號。 -->
+                <ol>
+                    <li>從正門進入本館，先看恐龍展示與大廳空間。</li>
+                    <li>前往生命科學廳、人類文化廳與地球環境廳等常設展。</li>
+                    <li>走到本館內側，經過科學繪圖展示間，觀察繪圖老師創作。</li>
+                    <li>過馬路到植物園，最後在溫室中放慢腳步。</li>
+                </ol>
+            </section>
+
+            <section id="table">
+                <h2>四、展區比較表</h2>
+                <!--
+                table：用表格整理可以橫向、縱向比較的資料。
+                表格的框線、內距與表頭背景全部由 CSS 的 table、th、td 規則設定，
+                所以這裡不再使用舊式的 border 屬性。
+                -->
+                <table>
+                    <!-- caption 是表格標題，必須是 table 的第一個子元素。 -->
+                    <caption>國立自然科學博物館主要展區比較</caption>
+                    <!-- thead 是表頭；tr 是一列；th 是標題儲存格，scope="col" 代表它是整欄的標題。 -->
+                    <thead>
+                        <tr>
+                            <th scope="col">展區</th>
+                            <th scope="col">背景或內容</th>
+                            <th scope="col">觀察重點</th>
+                        </tr>
+                    </thead>
+                    <!-- tbody 是資料區；td 是一般儲存格，每一列的欄數必須和表頭一致。 -->
+                    <tbody>
+                        <tr>
+                            <!-- scope="row" 代表這個 th 是這一整列的標題。 -->
+                            <th scope="row">科學中心</th>
+                            <td>1986 年 1 月 1 日與太空劇場同期開放</td>
+                            <td>以體驗和實作為主的科學展示</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">太空劇場</th>
+                            <td>1986 年第一期工程開放</td>
+                            <td>天文與太空主題的影像表演</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">常設展廳</th>
+                            <td>生命科學廳、人類文化廳、地球環境廳</td>
+                            <td>自然史、人類文化與地球環境的主題展示</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">植物園</th>
+                            <td>位於本館旁，隔著馬路相望的玻璃溫室</td>
+                            <td>約 400 多種植物與臺灣本土生態</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="photo">
+                <h2>五、展廳照片</h2>
+                <!-- figure（圖像區）：把圖片與圖說包成一個獨立單元，figcaption 是這張圖的說明。 -->
+                <figure>
+                    <!--
+                    img 是空元素，不寫結束標籤。
+                    src 使用相對路徑，圖片和本檔案放在同一層；
+                    alt 是替代文字，圖片載入失敗或使用螢幕閱讀器時會朗讀，要具體描述畫面；
+                    width 與 height 指定顯示尺寸，可避免載入時版面跳動。
+                    -->
+                    <img src="nmns-dinosaur.jpg"
+                         alt="博物館展廳的俯視畫面，中央有暴龍復原模型，左側是長頸恐龍骨架，周圍有參觀的學童"
+                         width="480" height="320">
+                    <!-- 圖說要說明畫面與來源。交件前請把下方的來源補成實際網站名稱與連結。 -->
+                    <figcaption>
+                        國立自然科學博物館展廳內的恐龍展示。圖片來源：<a href="https://www.abic.com.tw/place/view/id/995" target="_blank" rel="noopener noreferrer">abic 愛貝客親子遊「國立自然科學博物館（台中科博館）」頁面</a>。
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section id="video">
+                <h2>六、影片介紹</h2>
+                <p>看完文字與照片後，可以透過影片對照實際空間與展示內容。</p>
+                <!--
+                iframe：在網頁中嵌入外部內容。
+                YouTube 必須使用 /embed/影片ID 這種嵌入網址，不能直接貼 watch?v= 的網址；
+                title 說明框架內容；allow 與 allowfullscreen 開啟必要功能與全螢幕；
+                class="video-frame" 讓 CSS 的 .video-frame 規則控制影片寬度與 16:9 比例。
+                直接雙擊檔案開啟時，YouTube 可能出現錯誤 153，請用 http 或 https 網址預覽。
+                -->
+                <iframe class="video-frame" width="480" height="270"
+                        src="https://www.youtube.com/embed/7tCS1RPBECQ"
+                        title="國立自然科學博物館介紹影片"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                <!-- 一般影片連結：嵌入失敗時，讀者仍可前往 YouTube 觀看；target="_blank" 會開新分頁。 -->
+                <p>
+                    若播放器無法顯示，可以
+                    <a href="https://www.youtube.com/watch?v=7tCS1RPBECQ" target="_blank" rel="noopener noreferrer">到 YouTube 觀看影片（另開分頁）</a>。
+                </p>
+                <p><small>影片來源：YouTube（影片連結見上方）。</small></p>
+            </section>
+
+            <section id="map">
+                <h2>七、位置地圖</h2>
+                <!-- address 標示聯絡或位置資訊，這裡放博物館的地址文字，讀者與搜尋引擎都能直接看懂。 -->
+                <address>地址：臺中市北區館前路一號</address>
+                <!--
+                Google 地圖 iframe：以座標查詢方式嵌入地圖，格式為「緯度,經度」。
+                網址中的 & 在 HTML 裡要寫成 &amp;。
+                地圖複製後附帶的行內樣式都已移除，外觀改由 class="map-frame" 對應的 CSS 規則控制；
+                loading="lazy" 讓地圖在接近畫面時才載入；title 說明這個框架的用途。
+                -->
+                <iframe class="map-frame" width="480" height="320"
+                        src="https://maps.google.com/maps?q=24.1575,120.66639&amp;z=16&amp;output=embed"
+                        title="國立自然科學博物館的 Google 地圖位置"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- 一般地圖連結：嵌入地圖無法顯示時，讀者仍可開啟 Google 地圖。 -->
+                <p>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%9C%8B%E7%AB%8B%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%B8%E5%8D%9A%E7%89%A9%E9%A4%A8" target="_blank" rel="noopener noreferrer">在 Google 地圖開啟「國立自然科學博物館」（另開分頁）</a>
+                </p>
+                <p><small>地圖來源：Google 地圖；座標取自公開百科資料，請以地圖顯示位置為準。</small></p>
+            </section>
+
+            <section id="sources">
+                <h2>八、資料來源</h2>
+                <p>文字依下列資料整理；參觀順序與觀察重點是我自己的規劃。</p>
+                <ul>
+                    <li><a href="https://www.nmns.edu.tw/ch/about/history-and-evolution/chronicle/index.html?page=2" target="_blank" rel="noopener noreferrer">國立自然科學博物館：大事記（籌備處成立與第一期開放）</a></li>
+                    <li><a href="https://sciamb.nmns.edu.tw/40/" target="_blank" rel="noopener noreferrer">國立自然科學博物館：開館四十週年系列活動</a></li>
+                    <li><a href="https://www.nownews.com/news/5799069" target="_blank" rel="noopener noreferrer">NOWnews：科博館展區與植物園介紹</a></li>
+                    <li><a href="https://www.weblio.jp/content/%E5%9C%8B%E7%AB%8B%E8%87%AA%E7%84%B6%E7%A7%91%E5%AD%B8%E5%8D%9A%E7%89%A9%E9%A4%A8" target="_blank" rel="noopener noreferrer">Weblio 百科（轉載維基百科）：國立自然科學博物館</a></li>
+                </ul>
+                <p><small>照片、影片與地圖來源已分別標示於各章節。資料整理日期：2026 年 10 月 29 日。</small></p>
+            </section>
+
+        </article>
+
+        <hr>
+
+        <!--
+        aside（補充資訊）：和主文有關，但拿掉也不影響主要論述的提醒。
+        aside 只表示內容性質，不會自動移到頁面右側；沒有 CSS 時它仍然顯示在原本的位置。
+        -->
+        <aside id="tips">
+            <h2>參觀小提醒</h2>
+            <!-- details 與 summary：瀏覽器原生的收折區塊，點擊 summary 即可展開，不需要 JavaScript。 -->
+            <details>
+                <summary>開放時間與優惠（點擊展開）</summary>
+                <p>
+                    一般展示場常見的開放時間是<strong>週二至週日 9:00 至 17:00</strong>。
+                    館方在 2026 年推出限時一年的週五午後免費方案，期間是 1 月 1 日至 12 月 31 日，
+                    每週五下午 2 點到 5 點可免費參觀展示場。
+                </p>
+                <p><small>時間與優惠可能調整，出發前請以國立自然科學博物館官網公告為準。</small></p>
+            </details>
+        </aside>
+
+    </main>
+
+    <hr>
+
+    <!-- footer（頁尾）：放作品資訊、更新日期與回到頁首的連結。 -->
+    <footer>
+        <p>數位行銷程式設計基礎 HW07｜國立自然科學博物館｜吳宜蓁（D1399089）</p>
+        <p><small>最後更新：<time datetime="2026-10-29">2026 年 10 月 29 日</time></small></p>
+        <!-- href="#top" 會跳回上方 id="top" 的 header。 -->
+        <p><a href="#top">回到頁首</a></p>
+    </footer>
+
+</body>
+</html>
